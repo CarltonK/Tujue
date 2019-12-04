@@ -14,10 +14,10 @@ import com.example.tujue.R;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class Home extends Fragment {
+public class Business extends Fragment {
 
 
-    public Home() {
+    public Business() {
         // Required empty public constructor
     }
 
@@ -26,8 +26,7 @@ public class Home extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_home, container, false);
-        return view;
+        return inflater.inflate(R.layout.fragment_business, container, false);
     }
 
 }

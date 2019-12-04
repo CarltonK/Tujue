@@ -35,4 +35,8 @@ dependencies {
     implementation 'com.github.GrenderG:Toasty:1.4.2'
     implementation 'de.hdodenhof:circleimageview:2.2.0'
     implementation 'com.github.dmytrodanylyk.shadow-layout:library:1.0.3'
+    implementation 'com.squareup.retrofit2:retrofit:2.1.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.1.0'
+    implementation 'com.flaviofaria:kenburnsview:1.0.7'
+
 }

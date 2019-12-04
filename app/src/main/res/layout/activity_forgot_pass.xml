@@ -88,8 +88,8 @@
 
             </LinearLayout>
             <FrameLayout
-                android:layout_width="40.7dp"
-                android:layout_height="45.3dp"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
                 android:layout_gravity="bottom|right"
                 android:layout_marginRight="27.3dp"
                 android:layout_marginBottom="43.7dp"
