@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "466290130079",
+    "firebase_url": "https://tujue-d0a0b.firebaseio.com",
+    "project_id": "tujue-d0a0b",
+    "storage_bucket": "tujue-d0a0b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:466290130079:android:36a0b52e985155cc60f6aa",
+        "android_client_info": {
+          "package_name": "com.example.tujue"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "466290130079-ejrg3dt69fbvp2jge5s1ecgmnm2s2jho.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.tujue",
+            "certificate_hash": "4d283a667d2e33f1beaf378dc024c31af9c1d2a8"
+          }
+        },
+        {
+          "client_id": "466290130079-jlilhkp5g55iipqn8h9q9stlsbemp832.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC5XKSg5vjsa_DgHsp688aO4qv4EXTpOJ8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "466290130079-jlilhkp5g55iipqn8h9q9stlsbemp832.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
