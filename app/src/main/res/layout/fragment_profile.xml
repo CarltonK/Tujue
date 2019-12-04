@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:shadow="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="50dp">
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:background="@drawable/hexagone2"
+                android:layout_height="345dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="225dp" />
+
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerInParent="true"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="0dp"
+                    android:elevation="3dp">
+
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="210dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="50dp"
+                        android:layout_marginRight="10dp"
+                        android:elevation="5dp">
+
+                        <com.dd.ShadowLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="#FFFFFF"
+                            shadow:sl_cornerRadius="10dp"
+                            shadow:sl_dx="2dp"
+                            shadow:sl_dy="2dp"
+                            shadow:sl_shadowColor="#11e1e2e4">
+
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@drawable/rounded_corner_5dp"
+                                android:orientation="vertical">
+
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_horizontal"
+                                    android:layout_marginTop="30dp"
+                                    android:orientation="vertical">
+
+                                    <customfonts.MyTextView_Poppins_Bold
+                                        android:textStyle="bold"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center_horizontal"
+                                        android:layout_marginTop="30dp"
+                                        android:id="@+id/user_email"
+                                        android:text="Email"
+                                        android:textColor="#4f4f4f"
+                                        android:textSize="22sp" />
+
+                                    <customfonts.MyTextView_Poppins_Regular
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="14dp"
+                                        android:text="Uid"
+                                        android:id="@+id/user_uid"
+                                        android:textColor="@color/colortext"
+                                        android:textSize="18sp" />
+
+                                </LinearLayout>
+
+
+                            </LinearLayout>
+
+                        </com.dd.ShadowLayout>
+
+                    </FrameLayout>
+
+
+                    <ImageView
+                        android:layout_width="120dp"
+                        android:layout_height="120dp"
+                        android:id="@+id/img_usr"
+                        android:layout_gravity="center_horizontal"
+                        android:background="@drawable/circle"
+                        android:elevation="5dp"
+                        android:src="@drawable/profile2" />
+
+                </FrameLayout>
+
+
+            </RelativeLayout>
+
+
+            <!--
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/tasks_recycleview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clipToPadding="false"
+                android:paddingLeft="10dp" />
+
+               -->
+
+        </LinearLayout>
+
+</LinearLayout>
