@@ -41,6 +41,9 @@ public class Article {
         this.publishedAt = publishedAt;
     }
 
+    public Article() {
+    }
+
     public Source getSource() {
         return source;
     }

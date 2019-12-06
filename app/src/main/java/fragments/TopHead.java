@@ -1,22 +1,34 @@
 package fragments;
 
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
+import android.graphics.Color;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import android.os.Handler;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.tujue.R;
+import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import adapters.ArticleAdapter;
 import es.dmoral.toasty.Toasty;
 import handler.Article;
 import handler.BuilderAPI;
@@ -33,6 +45,9 @@ import retrofit2.converter.gson.GsonConverterFactory;
  * A simple {@link Fragment} subclass.
  */
 public class TopHead extends Fragment {
+    private RecyclerView headlines;
+    private List<Article> articles = new ArrayList<>();
+    private ArticleAdapter article_adapter;
 
 
     public TopHead() {
@@ -46,12 +61,26 @@ public class TopHead extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
+        headlines = view.findViewById(R.id.recycler_headlines);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
+        headlines.setLayoutManager(layoutManager);
+        headlines.setHasFixedSize(true);
+
+
+        //Get Articles
         getTopArticles();
+
+        article_adapter = new ArticleAdapter(getContext(),articles);
+        headlines.setAdapter(article_adapter);
+
+
         return view;
     }
 
+
     private void getTopArticles() {
         final ProgressDialog progressDialog = new ProgressDialog(getContext());
+        progressDialog.setTitle("Top Headlines");
         progressDialog.setMessage("Loading....");
         progressDialog.show();
 
@@ -62,7 +91,12 @@ public class TopHead extends Fragment {
                 if (response.body() != null){
                     Toasty.success(getContext(),"Successful",
                             Toast.LENGTH_SHORT,true).show();
-                    Log.d(Constants.TAG, response.body().getStatus());
+                    //Assign results to Recyclerview
+                    article_adapter = new ArticleAdapter(getContext(), response.body().getArticles());
+                    Log.d("Tujue", article_adapter.toString());
+                    headlines.setAdapter(article_adapter);
+
+                    Log.d(Constants.TAG, response.body().getArticles().toString());
                 } else {
                     Toasty.warning(getContext(),"No articles found",Toast.LENGTH_SHORT,true).show();
                 }

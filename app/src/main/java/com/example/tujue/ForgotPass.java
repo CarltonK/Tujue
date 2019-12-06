@@ -17,6 +17,7 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.analytics.FirebaseAnalytics;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -33,6 +34,7 @@ public class ForgotPass extends AppCompatActivity {
     //Firebase Init
     private FirebaseAuth app_auth;
     private FirebaseUser current_user;
+    private FirebaseAnalytics mFirebaseAnalytics;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +43,8 @@ public class ForgotPass extends AppCompatActivity {
         this.getSupportActionBar().hide();
 
         app_auth = FirebaseAuth.getInstance();
+        // Obtain the FirebaseAnalytics instance.
+        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
 
         rst_button = findViewById(R.id.passrst_button);
         rst_email = findViewById(R.id.edt_fpass_email);

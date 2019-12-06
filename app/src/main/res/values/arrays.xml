@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="ld_activityScreenTitles">
+
+        <item>Top Headlines</item>
+        <item>Business</item>
+        <item>Entertainment</item>
+        <item>Health</item>
+        <item>Science</item>
+        <item>Sports</item>
+        <item>Technology</item>
+        <item>About</item>
+        <item>Profile</item>
+        <item>Logout</item>
+
+    </string-array>
+
+    <array name="ld_activityScreenIcons">
+        <item>@drawable/ic_home_black_24dp</item>
+        <item>@drawable/ic_action_business</item>
+        <item>@drawable/ic_action_entertainment</item>
+        <item>@drawable/ic_action_health</item>
+        <item>@drawable/ic_action_science</item>
+        <item>@drawable/ic_action_sports</item>
+        <item>@drawable/ic_action_technology</item>
+        <item>@drawable/ic_action_about</item>
+        <item>@drawable/ic_account_circle_black_24dp</item>
+        <item>@drawable/ic_action_logout</item>
+    </array>
+
+</resources>

@@ -17,6 +17,7 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.analytics.FirebaseAnalytics;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -31,6 +32,7 @@ public class Register extends AppCompatActivity {
     //Firebase init
     private FirebaseAuth app_auth;
     private FirebaseUser current_user;
+    private FirebaseAnalytics mFirebaseAnalytics;
 
     //Key Identifiers
     String email, password;
@@ -44,6 +46,8 @@ public class Register extends AppCompatActivity {
         //Proper init
         app_auth = FirebaseAuth.getInstance();
         current_user = app_auth.getCurrentUser();
+        // Obtain the FirebaseAnalytics instance.
+        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
 
         email_edit = findViewById(R.id.edt_reg_email);
         password_edit = findViewById(R.id.edt_reg_password);

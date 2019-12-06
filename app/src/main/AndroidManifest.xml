@@ -13,7 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".ForgotPass"></activity>
-        <activity android:name=".TujueMain" />
+        <activity
+            android:name=".TujueMain"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
         <activity android:name=".Register" />
         <activity android:name=".MainActivity">
             <intent-filter>

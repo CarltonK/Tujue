@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_margin="5dp"
+    android:layout_height="120dp">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:id="@+id/card_article"
+        android:paddingStart="5dp"
+        android:paddingLeft="5dp"
+        android:paddingEnd="5dp"
+        android:paddingRight="5dp"
+        app:cardElevation="7dp"
+        app:cardCornerRadius="6dp"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:tag="front"
+            android:background="@drawable/rounded_corner_5dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="5dp">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:id="@+id/img_article"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/article_circle"
+                android:elevation="5dp"
+                android:src="@drawable/profile2" />
+
+            <customfonts.MyTextView_Poppins_Bold
+                android:id="@+id/title_article"
+                android:text="Title"
+                android:padding="4dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/img_article"
+                android:singleLine="true"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <customfonts.MyTextView_Poppins_Medium
+                android:id="@+id/desc_article"
+                android:maxLines="2"
+                android:padding="4dp"
+                android:text="Description"
+                android:layout_below="@+id/title_article"
+                android:layout_alignLeft="@+id/title_article"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="13sp" />
+
+            <customfonts.MyTextView_Poppins_Regular
+                android:id="@+id/author_article"
+                android:maxLines="2"
+                android:text="Author"
+                android:paddingStart="4dp"
+                android:layout_below="@+id/desc_article"
+                android:layout_alignLeft="@+id/desc_article"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="12sp" />
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+    <!-- this is the item front view -->
+
+
+
+    <!-- just a divider -->
+    <View android:background="@color/textColorSecondary"
+        android:layout_width="fill_parent"
+        android:layout_height="0.5dp" />
+
+</LinearLayout>
