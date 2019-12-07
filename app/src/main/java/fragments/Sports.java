@@ -2,6 +2,7 @@ package fragments;
 
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -15,6 +16,7 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.example.tujue.R;
+import com.example.tujue.WebReadActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,6 +26,8 @@ import es.dmoral.toasty.Toasty;
 import handler.Article;
 import handler.BuilderAPI;
 import handler.Constants;
+import handler.DatabaseLocal;
+import handler.RecyclerItemClickListener;
 import handler.ServerResponse;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -36,6 +40,7 @@ public class Sports extends Fragment {
     private RecyclerView sports;
     private List<Article> articles = new ArrayList<>();
     private ArticleAdapter article_adapter;
+    private DatabaseLocal local_db;
 
 
 
@@ -56,6 +61,7 @@ public class Sports extends Fragment {
         sports.setHasFixedSize(true);
 
 
+        local_db = new DatabaseLocal(getContext());
         //Get Articles
         getTopArticles();
 
@@ -73,7 +79,7 @@ public class Sports extends Fragment {
 
         BuilderAPI.apiService.getSports().enqueue(new Callback<ServerResponse>() {
             @Override
-            public void onResponse(Call<ServerResponse> call, Response<ServerResponse> response) {
+            public void onResponse(Call<ServerResponse> call, final Response<ServerResponse> response) {
 
                 if (response.body() != null){
                     Toasty.success(getContext(),"Successful",
@@ -83,7 +89,25 @@ public class Sports extends Fragment {
                     Log.d("Tujue", article_adapter.toString());
                     sports.setAdapter(article_adapter);
 
-                    Log.d(Constants.TAG, response.body().getArticles().toString());
+                    sports.addOnItemTouchListener(new RecyclerItemClickListener(getContext(),
+                            new RecyclerItemClickListener.OnItemClickListener() {
+                                @Override
+                                public void onItemClick(View view, int position) {
+
+
+                                    local_db.saveArticle(response.body().getArticles().get(position).getSource().getName(),
+                                            response.body().getArticles().get(position).getAuthor(),
+                                            response.body().getArticles().get(position).getTitle(),
+                                            response.body().getArticles().get(position).getContent(),
+                                            response.body().getArticles().get(position).getDescription(),
+                                            response.body().getArticles().get(position).getUrl(),
+                                            response.body().getArticles().get(position).getUrlToImage(),
+                                            response.body().getArticles().get(position).getPublishedAt());
+
+                                    startActivity(new Intent(getContext(), WebReadActivity.class));
+
+                                }
+                            }));
                 } else {
                     Toasty.warning(getContext(),"No articles found",Toast.LENGTH_SHORT,true).show();
                 }

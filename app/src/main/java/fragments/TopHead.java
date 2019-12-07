@@ -4,6 +4,7 @@ package fragments;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 
@@ -23,6 +24,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.tujue.R;
+import com.example.tujue.WebReadActivity;
 import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
@@ -33,8 +35,11 @@ import es.dmoral.toasty.Toasty;
 import handler.Article;
 import handler.BuilderAPI;
 import handler.Constants;
+import handler.DatabaseLocal;
 import handler.InterfaceRequest;
+import handler.RecyclerItemClickListener;
 import handler.ServerResponse;
+import handler.Source;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -48,6 +53,7 @@ public class TopHead extends Fragment {
     private RecyclerView headlines;
     private List<Article> articles = new ArrayList<>();
     private ArticleAdapter article_adapter;
+    private DatabaseLocal local_db;
 
 
     public TopHead() {
@@ -65,14 +71,14 @@ public class TopHead extends Fragment {
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
         headlines.setLayoutManager(layoutManager);
         headlines.setHasFixedSize(true);
+        local_db = new DatabaseLocal(getContext());
 
 
         //Get Articles
         getTopArticles();
 
-        article_adapter = new ArticleAdapter(getContext(),articles);
+        article_adapter = new ArticleAdapter(getContext(), articles);
         headlines.setAdapter(article_adapter);
-
 
         return view;
     }
@@ -86,7 +92,7 @@ public class TopHead extends Fragment {
 
         BuilderAPI.apiService.getHeadlines().enqueue(new Callback<ServerResponse>() {
             @Override
-            public void onResponse(Call<ServerResponse> call, Response<ServerResponse> response) {
+            public void onResponse(Call<ServerResponse> call, final Response<ServerResponse> response) {
 
                 if (response.body() != null){
                     Toasty.success(getContext(),"Successful",
@@ -96,7 +102,26 @@ public class TopHead extends Fragment {
                     Log.d("Tujue", article_adapter.toString());
                     headlines.setAdapter(article_adapter);
 
-                    Log.d(Constants.TAG, response.body().getArticles().toString());
+                    headlines.addOnItemTouchListener(new RecyclerItemClickListener(getContext(),
+                            new RecyclerItemClickListener.OnItemClickListener() {
+                                @Override
+                                public void onItemClick(View view, int position) {
+
+
+                                    local_db.saveArticle(response.body().getArticles().get(position).getSource().getName(),
+                                            response.body().getArticles().get(position).getAuthor(),
+                                            response.body().getArticles().get(position).getTitle(),
+                                            response.body().getArticles().get(position).getContent(),
+                                            response.body().getArticles().get(position).getDescription(),
+                                            response.body().getArticles().get(position).getUrl(),
+                                            response.body().getArticles().get(position).getUrlToImage(),
+                                            response.body().getArticles().get(position).getPublishedAt());
+
+                                    startActivity(new Intent(getContext(), WebReadActivity.class));
+
+                                }
+                            }));
+
                 } else {
                     Toasty.warning(getContext(),"No articles found",Toast.LENGTH_SHORT,true).show();
                 }

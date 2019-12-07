@@ -19,6 +19,7 @@ import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 import handler.Article;
+import handler.RecyclerItemClickListener;
 
 public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ViewHolder> {
     private Context context;
@@ -79,6 +80,7 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ViewHold
             author =  view.findViewById(R.id.author_article);
             desc =  view.findViewById(R.id.desc_article);
             icon = view.findViewById(R.id.img_article);
+
         }
     }
 }

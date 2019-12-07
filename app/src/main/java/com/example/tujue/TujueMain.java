@@ -200,14 +200,6 @@ public class TujueMain extends AppCompatActivity implements DrawerAdapter.OnItem
                 break;
 
             case 7:
-                fragment = new About();
-                break;
-
-            case 8:
-                fragment = new Profile();
-                break;
-
-            case 9:
                 new AlertDialog.Builder(this)
                         .setTitle("EXIT")
                         .setMessage("Are you sure ?")
@@ -219,6 +211,14 @@ public class TujueMain extends AppCompatActivity implements DrawerAdapter.OnItem
                         })
                         .setNegativeButton("No", null)
                         .show();
+                break;
+
+            case 8:
+                fragment = new About();
+                break;
+
+            case 9:
+                fragment = new Profile();
                 break;
 
             default:

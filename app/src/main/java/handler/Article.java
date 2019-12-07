@@ -32,6 +32,10 @@ public class Article {
     @Expose
     private String publishedAt;
 
+    @SerializedName("content")
+    @Expose
+    private String content;
+
     public Article(String author, String title, String description, String url, String urlToImage, String publishedAt) {
         this.author = author;
         this.title = title;
@@ -72,5 +76,12 @@ public class Article {
         return publishedAt;
     }
 
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
 
 }
