@@ -80,8 +80,6 @@ public class Technology extends Fragment {
             public void onResponse(Call<ServerResponse> call, final Response<ServerResponse> response) {
 
                 if (response.body() != null){
-                    Toasty.success(getContext(),"Successful",
-                            Toast.LENGTH_SHORT,true).show();
                     //Assign results to Recyclerview
                     article_adapter = new ArticleAdapter(getContext(), response.body().getArticles());
                     Log.d("Tujue", article_adapter.toString());

@@ -15,15 +15,178 @@
         android:background="@drawable/rounded_corner_5dp"
         android:layout_height="match_parent">
 
-        <WebView
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/web_one_article"
-            tools:layout_editor_absoluteX="1dp"
-            tools:layout_editor_absoluteY="1dp" />
+            android:orientation="vertical"
+            android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="280dp">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_margin="5dp"
+                android:padding="7dp"
+                app:cardElevation="6dp"
+                app:cardCornerRadius="6dp"
+                android:background="@drawable/rounded_corner_5dp"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:orientation="vertical"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:id="@+id/image_single_article"
+                        android:scaleType="fitCenter"
+                        android:layout_height="230dp">
+
+                    </ImageView>
+
+                    <customfonts.MyTextView_Poppins_Bold
+                        android:layout_width="wrap_content"
+                        android:text="Title: "
+                        android:textStyle="bold"
+                        android:id="@+id/title_single_article"
+                        android:padding="10dp"
+                        android:textSize="14sp"
+                        android:layout_height="wrap_content">
+
+                    </customfonts.MyTextView_Poppins_Bold>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_margin="5dp"
+                android:padding="7dp"
+                app:cardElevation="6dp"
+                app:cardCornerRadius="6dp"
+                android:background="@drawable/rounded_corner_5dp"
+                android:layout_height="match_parent">
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_margin="2dp"
+                android:layout_height="wrap_content">
+
+                <customfonts.MyTextView_Poppins_SemiBold
+                    android:layout_width="wrap_content"
+                    android:text="Written By: "
+                    android:textStyle="bold"
+                    android:id="@+id/author_single_article"
+                    android:padding="10dp"
+                    android:textSize="13sp"
+                    android:layout_height="wrap_content">
+
+                </customfonts.MyTextView_Poppins_SemiBold>
+
+                <customfonts.MyTextView_Poppins_SemiBold
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/date_single_article"
+                    android:layout_below="@+id/author_single_article"
+                    android:padding="10dp"
+                    android:text="Published on: "
+                    android:textSize="13sp">
+
+                </customfonts.MyTextView_Poppins_SemiBold>
+
+                <customfonts.MyTextView_Poppins_Medium
+                    android:id="@+id/source_single_article"
+                    android:layout_width="wrap_content"
+                    android:layout_below="@+id/date_single_article"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="Source: "
+                    android:textSize="13sp">
+
+                </customfonts.MyTextView_Poppins_Medium>
+
+            </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+            <androidx.core.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_margin="1dp"
+                android:layout_height="match_parent">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_margin="5dp"
+                    android:padding="7dp"
+                    app:cardElevation="6dp"
+                    app:cardCornerRadius="6dp"
+                    android:background="@drawable/rounded_corner_5dp"
+                    android:layout_height="match_parent">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                    <customfonts.MyTextView_Poppins_Regular
+                        android:id="@+id/content_single_article"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        android:text="Hello World"
+                        android:textSize="13sp">
+
+                    </customfonts.MyTextView_Poppins_Regular>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="2dp"
+                            android:layout_below="@id/content_single_article"
+                            android:layout_gravity="start"
+                            android:padding="10dp"
+                            android:layout_marginTop="3dp"
+                            android:background="#000000"/>
+
+                        <customfonts.MyTextView_Poppins_SemiBold
+                            android:id="@+id/save_single_article"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:drawablePadding="10dp"
+                            android:drawableLeft="@drawable/ic_action_favorite"
+                            android:drawableTint="#000000"
+                            android:background="@drawable/white_cursor_color"
+                            android:layout_below="@id/content_single_article"
+                            android:layout_marginTop="5dp"
+                            android:padding="10dp"
+                            android:text="Save Article"
+                            android:textSize="15sp">
+
+                        </customfonts.MyTextView_Poppins_SemiBold>
+
+                    </RelativeLayout>
+
+                </androidx.cardview.widget.CardView>
+
+
+            </androidx.core.widget.NestedScrollView>
+
+        </LinearLayout>
+
 
     </androidx.cardview.widget.CardView>
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
